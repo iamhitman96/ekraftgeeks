@@ -1,0 +1,321 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .vertical-menu {
+            width: 200px;
+        }
+
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc;
+        }
+
+        .vertical-menu a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .hr {
+            width: 120%;
+            margin-left: 0px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#hi1").fadeIn();
+            });
+        });    
+    </script>
+
+</head>
+
+
+
+<body>
+    <div>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">My Library</a>
+
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid" style="float: left;">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active lead" href="#">
+                                    <span data-feather="home"></span>
+                                    Dashboard
+                                    <span class="sr-only">(current)</span>
+
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file"></span>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"> Add Books </button>
+
+
+                                </a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="shopping-cart"></span>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">View Books</button>
+ 
+                                </a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="users"></span>
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Issue Books</button>
+
+                                </a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="bar-chart-2"></span>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">View Issue Books</button>
+
+                                </a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="layers"></span>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">Return Books</button>
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link btn btn-primary active padding" role="button" aria-pressed="true">Sign Out</a>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+            </div>
+
+        </div>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Adding New Book</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    
+        <div class="form-group">
+                            <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookName" class="col-sm-3 control-label">Book Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="bookName" placeholder="Give the Book Name" class="form-control" autofocus>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="authorname" class="col-sm-3 control-label">Author Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="authorname" placeholder="Give the author name" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="genre" class="col-sm-3 control-label">Genre</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="genre" placeholder="Give the Genre of the Book" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cost" class="col-sm-3 control-label">Cost</label>
+                            <div class="col-sm-9">
+                                <input type="number" id="cost" placeholder="Give the cost of the Book" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="publisher" class="col-sm-3 control-label">Publisher</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="publisher" placeholder="Give the Publisher" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edition" class="col-sm-3 control-label">Edition</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="edition" placeholder="Give the Edition of the Book" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="language" class="col-sm-3 control-label">Language</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="language" placeholder="Give the Language of the Book" class="form-control" autofocus>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <center>
+                                <button type="submit" class="btn btn-default js">Add Book</button>
+                                <button type="cancel" class="btn btn-default js">Cancel</button>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Issue Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            
+<div class="form-group">
+                    <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookName" class="col-sm-3 control-label">Member ID</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="authorname" class="col-sm-3 control-label">Date Issue</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="genre" class="col-sm-3 control-label">Date Return</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="genre" placeholder="Give the return date of Book" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="publisher" class="col-sm-3 control-label">Late Fees</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="publisher" placeholder="Give the Publisher" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <center>
+                        <button type="submit" class="btn btn-default js">Submit</button>
+                        <button type="cancel" class="btn btn-default js">Cancel</button>
+                    </center>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>  
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Return Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            
+<div class="form-group">
+                    <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookName" class="col-sm-3 control-label">Member ID</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="authorname" class="col-sm-3 control-label">Date Return</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="genre" class="col-sm-3 control-label">Date Issue</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="genre" placeholder="Give the return date of Book" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <center>
+                        <button type="submit" class="btn btn-default js">Submit</button>
+                        <button type="cancel" class="btn btn-default js">Cancel</button>
+                    </center>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    
+
+
+
+</div>
+</div>
+</div>
+</body>
+
+</html>

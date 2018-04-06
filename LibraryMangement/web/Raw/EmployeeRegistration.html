@@ -1,0 +1,251 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+<script type="text/javascript">
+  
+    function myfun()
+    {
+        var a = document.getElementById("password").value;
+        var b = document.getElementById("passwords").value;
+
+        if(a=="")
+        {
+            document.getElementById("messages").innerHTML="Please Enter Password";
+            return false;
+        }
+        if(b=="")
+        {
+            document.getElementById("messages").innerHTML="Please Enter Confirm Password";
+            return false;
+        }
+        
+        if(a.length < 8)
+        {
+            document.getElementById("messages").innerHTML="Password must be greater than 8 letters";
+            return false;
+        }
+        if(a.length > 20)
+        {
+            document.getElementById("messages").innerHTML="Password must be less than 20 letters";
+            return false;
+        }
+
+    }
+
+  function ValidateForm(gender){
+ErrorText= "";
+if ( ( gender.gender[0].checked == false ) && ( gender.gender[1].checked == false ) && ( gender.gender[2].checked == false ) ) 
+{
+alert ( "Please choose your Gender: Male or Female or Unknown" ); 
+return false;
+}
+if (ErrorText= "")
+ { 
+    gender.submit() 
+ }
+}
+
+function validateemail() {
+    var x = document.forms["form1"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+
+    function validateAge(age) {
+    var input = age.value;
+    if(input>=18&&input<=70) {
+        return true;
+    }
+    else {
+        alert("Age must be between 18 and 70 | You have entered "+input);
+        return false;
+    }
+
+}
+
+      function onlyAlphabets(e, t) {
+try {
+    if (window.event) 
+    {
+        var charCode = window.event.keyCode;
+    }
+    else if (e)
+     {
+        var charCode = e.which;
+    }
+    else { 
+        return true;
+         }
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+        return true;
+    else
+        return false;
+}
+catch (err) {
+    alert(err.Description);
+
+}
+
+}
+
+    
+    </script>
+         
+    </head>
+
+<body>
+           <div class="container">
+            <form class="form-horizontal" id="form1" onsubmit="return ValidateForm();return myfun(this);">
+                <div class="w-75 col-lg-8 offset-lg-2">
+                    <center>
+                        <h2>Employee Registration Form</h2>
+                    </center>
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="firstName" placeholder="First Name" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="lastName" placeholder="Last Name" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="col-sm-3 control-label">Enter Age</label>
+                        <div class="col-sm-9">
+                            <input type="number" id="age" placeholder="Age" class="form-control" onchange="return validateAge(this)" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                        <div class="col-sm-9">
+                            <input type="date" id="birthDate" class="form-control" onblur="return checkform(this)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Gender</label>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="Female" required>Female
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio"  name="gender" value="Male" required>Male
+                                    </label>
+                                </div>
+                                <div class="row-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio"  name="gender" value="Unknown" required>Unknown
+                                    </label>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-3 control-label">Enter Address</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="message" rows="5" id="message" class="form-control" placeholder="Full Address" maxlength="20" minlength="10" required></textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-3 control-label">Phone Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="phone" placeholder="Phone Number" class="form-control" maxlength="10"  pattern="[0-9]{10}" title="Enter your mobile number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="email" placeholder="Email" class="form-control" onchange="return validateemail();" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5">Kyc Details</label>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="kyc" value="aadhar" required>Aadhar Card
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="kyc" value="pan" required>Pan Card
+                                        </label>
+                                    </div>
+                                    <div class="row-sm-15">
+                                        <input type="text" id="kycDetails" placeholder="Kyc Details" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">Enter Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" placeholder="Password" class="form-control" id="password" value="" required>
+                                <span id="messages" style="color:red;"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-sm-5 control-label">Enter Confirm Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" placeholder="ConfirmPassword" class="form-control" id="passwords" value="" required>
+                            <span id="messages" style="color:red;"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="terms">I accept
+                                    <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <center>
+                                <button type="submit" class="btn btn-default js" onClick="ValidateForm(this.form);">Submit</button>
+                                <button type="cancel" class="btn btn-default js">Cancel</button>
+                            </center>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+     </body>
+     </html>

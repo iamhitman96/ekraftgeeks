@@ -1,0 +1,183 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function validation() {
+        var bid = form1.bookid.value;
+        var bName = form1.bookName.value;
+        var au = form1.author.value;
+        var ge = form1.genre.value;
+        var co = form1.cost.value;
+        var publish = form1.publisher.value;
+        var edit = form1.edition.value;
+        var lang = form1.language.value;
+
+    if(bid== '')
+    {
+    alert("Please Enter Book Id");
+    return false;
+    }    
+    
+    if(bName== '')
+    {
+    alert("Please Enter Book Name");
+    return false;
+    }
+    
+    if(au== '')
+    {
+    alert("Please Enter Author Name");
+    return false;
+    }
+    
+    if(ge== '')
+    {
+    alert("Please Enter Genre");
+    return false;
+    }
+    
+    if(co== '')
+    {
+    alert("Please Enter Cost");
+    return false;
+    }
+    
+    if(publish== '')
+    {
+    alert("Please Enter Publisher Name");
+    return false;
+    }
+    
+    if(edit== '')
+    {
+    alert("Please Enter Edition");
+    return false;
+    }
+    
+    if(lang== '')
+    {
+    alert("Please Enter Language");
+    return false;
+    }
+}
+
+        function chk()
+         {
+            var p = parseFloat(document.getElementById("cost").value);
+            p = p.toFixed(2);
+            document.getElementById("cost").value = p;
+         } 
+
+      function onlyAlphabets(e, t) {
+try {
+    if (window.event) 
+    {
+        var charCode = window.event.keyCode;
+    }
+    else if (e)
+     {
+        var charCode = e.which;
+    }
+    else { 
+        return true;
+         }
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+        return true;
+    else
+        return false;
+}
+catch (err) {
+    alert(err.Description);
+
+}
+
+}
+
+
+</script>
+</head>
+
+
+<body>
+
+<div class="container">
+            <form class="form-horizontal" role="form" id="form1" method="get" onsubmit="return validation()">
+                <div class="w-75 col-lg-8 offset-lg-2">
+                    <center>
+                        <h2>Adding the Book</h2>
+                    </center>
+
+                    <div class="form-group">
+                        <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                        <div class="col-sm-9">
+                            <input type="number" id="bookid" placeholder="Give the Book Id" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookName" class="col-sm-3 control-label">Book Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="bookName" placeholder="Give the Book Name" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authorname" class="col-sm-3 control-label">Author Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="authorname" placeholder="Give the author name" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genre" class="col-sm-3 control-label">Genre</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="genre" placeholder="Give the Genre of the Book" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cost" class="col-sm-3 control-label">Cost</label>
+                        <div class="col-sm-9">
+                            <input type="number" id="cost" placeholder="Give the cost of the Book" class="form-control" onchange="chk()" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publisher" class="col-sm-3 control-label">Publisher</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="publisher" placeholder="Give the Publisher" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edition" class="col-sm-3 control-label">Edition</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="edition" placeholder="Give the Edition of the Book" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="language" class="col-sm-3 control-label">Language</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="language" placeholder="Give the Language of the Book" class="form-control" onkeypress="return onlyAlphabets(event,this);" required>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <center>
+                            <button type="submit" class="btn btn-default js">Add Book</button>
+                            <button type="cancel" class="btn btn-default js">Cancel</button>
+                        </center>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+</body>
+</html>
