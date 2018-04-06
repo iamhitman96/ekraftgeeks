@@ -18,8 +18,6 @@
         <br/>
 
 
-
-
         <div class="container-fluid">
 
 
@@ -48,7 +46,7 @@
                                 <li class="nav-item lead">
                                     <a class="nav-link" href="#">
                                         <span data-feather="shopping-cart"></span>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">View Books</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" data-whatever="@mdo">View Books</button>
 
                                     </a>
                                 </li>
@@ -62,7 +60,7 @@
                                 <li class="nav-item lead">
                                     <a class="nav-link" href="#">
                                         <span data-feather="bar-chart-2"></span>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">View Issue Books</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" data-whatever="@mdo">View Issue Books</button>
 
                                     </a>
                                 </li>
