@@ -56,23 +56,21 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav mx-auto padding ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
+                            <a class="nav-link" href="home.jsp">Home
+                              
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.jsp">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact US</a>
+                            <a class="nav-link" href="contactus.jsp">Contact US</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blogs</a>
-                        </li>
+                     
 
                     </ul>
-                    <a href="#" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-right: 1% ">Login</a>
-                    <a href="#" class="btn btn-outline-secondary" role="button" aria-pressed="true">Register</a>
+                    <a href="Login.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-right: 1% ">Login</a>
+                    <a href="MemberRegistration.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true">Register</a>
 
                 </div>
             </nav>
