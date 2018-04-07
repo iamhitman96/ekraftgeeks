@@ -148,9 +148,6 @@
                             <select class="form-control" name="employeeId" id="exampleFormControlSelect1">
 
                                 <%
-
-                                    List<String> emails = new ArrayList();
-
                                     try {
                                         Connection con = ConnectionProvider.getConnection();
                                         Statement stmt = con.createStatement();
@@ -185,31 +182,58 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Email</th>
+
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">DOB</th>
                             </tr>
                         </thead>
                         <tbody>
+
+
+                            <%                                try {
+                                    Connection con = ConnectionProvider.getConnection();
+                                    Statement stmt = con.createStatement();
+                                    Statement stmt2 = con.createStatement();
+                                    ResultSet rs = stmt.executeQuery("select email from login where flag='C'");
+
+                                    while (rs.next()) {
+
+                                        ResultSet rs2 = stmt2.executeQuery("select * from register where email='" + rs.getString("email") + "'");
+                            %>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <%
+                                    while (rs2.next()) {
+                                %>
+                                <td><%=rs2.getString("firstName")%> <%=rs2.getString("lastName")%></td>
+                                <td><%=rs2.getString("age")%></td>
+                                <td><%=rs2.getString("gender")%></td>
+                                <td><%=rs2.getString("email")%></td>
+
+                                <td><%=rs2.getString("phoneNumber")%></td>
+                                <td><%=rs2.getString("dob")%></td>
+
+                                <%
+                                    }
+                                %>
+
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            <%
+                                    }
+
+                                } catch (Exception e) {
+                                    System.out.println(e);
+                                }
+
+
+                            %>
+
+
+
+
                         </tbody>
                     </table>
 
