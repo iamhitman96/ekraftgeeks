@@ -4,6 +4,11 @@
     Author     : mohnish
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="Main.ConnectionProvider"%>
+<%@page import="java.util.UUID"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,7 +65,7 @@
                                 <li class="nav-item lead">
                                     <a class="nav-link" href="#">
                                         <span data-feather="shopping-cart"></span>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" data-whatever="@mdo">View Books</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewBook" data-whatever="@mdo">View Books</button>
 
                                     </a>
                                 </li>
@@ -74,7 +79,7 @@
                                 <li class="nav-item lead">
                                     <a class="nav-link" href="#">
                                         <span data-feather="bar-chart-2"></span>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="" data-whatever="@mdo">View Issue Books</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewIssuedBook" data-whatever="@mdo">View Issue Books</button>
 
                                     </a>
                                 </li>
@@ -106,7 +111,137 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="addbook" method="post">
+
+                                <div class="form-group">
+                                    <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" disabled="true" value="<%=UUID.randomUUID().toString().replace("-", "").substring(0, 7)%>" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookName" class="col-sm-3 control-label">Book Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="bookName" placeholder="Give the Book Name" class="form-control" required>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="authorname" class="col-sm-3 control-label">Author Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="authorname" placeholder="Give the author name" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="language" class="col-sm-3 control-label">Language</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="language" placeholder="Give the Language of the Book" class="form-control" required>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <center>
+                                        <button type="submit" class="btn btn-default js">Add Book</button>
+
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Issue Book</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="issuebook" method="post">
+
+                                <div class="form-group">
+                                    <label for="bookid" class="col-sm-3 control-label">Book Id</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+
+
+                                            <%
+
+                                                try {
+                                                    Connection con = ConnectionProvider.getConnection();
+                                                    Statement stmt = con.createStatement();
+                                                    ResultSet rs = stmt.executeQuery("select * from book");
+
+                                                    while (rs.next()) {
+                                            %>
+                                            <option value='<%=rs.getString("id")%>'><%=rs.getString("id")%>~<%=rs.getString("name")%>~<%=rs.getString("author")%></option>
+
+                                            <%
+                                                    }
+
+                                                } catch (Exception e) {
+                                                    out.print(e);
+                                                }
+
+                                            %>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookName" class="col-sm-3 control-label">Member ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="authorname" class="col-sm-3 control-label">Date Issue</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" id="issueDate" onchange="setDate();" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="genre" class="col-sm-3 control-label">Date Return</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"   id="returnDate"  disabled class="form-control" >
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <center>
+                                        <button type="submit" class="btn btn-default js">Submit</button>
+
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>  
+
+
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Return Book</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="returnbook" method="post">
 
                                 <div class="form-group">
                                     <label for="bookid" class="col-sm-3 control-label">Book Id</label>
@@ -115,184 +250,171 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="bookName" class="col-sm-3 control-label">Book Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="bookName" placeholder="Give the Book Name" class="form-control" autofocus>
 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="authorname" class="col-sm-3 control-label">Author Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="authorname" placeholder="Give the author name" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="genre" class="col-sm-3 control-label">Genre</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="genre" placeholder="Give the Genre of the Book" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cost" class="col-sm-3 control-label">Cost</label>
-                                    <div class="col-sm-9">
-                                        <input type="number" id="cost" placeholder="Give the cost of the Book" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="publisher" class="col-sm-3 control-label">Publisher</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="publisher" placeholder="Give the Publisher" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="edition" class="col-sm-3 control-label">Edition</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="edition" placeholder="Give the Edition of the Book" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="language" class="col-sm-3 control-label">Language</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="language" placeholder="Give the Language of the Book" class="form-control" autofocus>
-
-                                    </div>
-                                </div>
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <center>
-                                        <button type="submit" class="btn btn-default js">Add Book</button>
-                                        <button type="cancel" class="btn btn-default js">Cancel</button>
+                                        <button type="submit" class="btn btn-default js">Submit</button>                          
                                     </center>
                                 </div>
+                            </form>
                         </div>
-                        </form>
+
                     </div>
+
                 </div>
-            </div>
-        </div>
-
-
-        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Issue Book</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-
-                            <div class="form-group">
-                                <label for="bookid" class="col-sm-3 control-label">Book Id</label>
-                                <div class="col-sm-9">
-                                    <input type="number" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="bookName" class="col-sm-3 control-label">Member ID</label>
-                                <div class="col-sm-9">
-                                    <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="authorname" class="col-sm-3 control-label">Date Issue</label>
-                                <div class="col-sm-9">
-                                    <input type="date" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="genre" class="col-sm-3 control-label">Date Return</label>
-                                <div class="col-sm-9">
-                                    <input type="date" id="genre" placeholder="Give the return date of Book" class="form-control" autofocus>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="publisher" class="col-sm-3 control-label">Late Fees</label>
-                                <div class="col-sm-9">
-                                    <input type="number" id="publisher" placeholder="Give the Publisher" class="form-control" autofocus>
-                                </div>
-                            </div>
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <center>
-                                    <button type="submit" class="btn btn-default js">Submit</button>
-                                    <button type="cancel" class="btn btn-default js">Cancel</button>
-                                </center>
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>  
-    </div>
-
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Return Book</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-
-                        <div class="form-group">
-                            <label for="bookid" class="col-sm-3 control-label">Book Id</label>
-                            <div class="col-sm-9">
-                                <input type="number" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
-
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="bookName" class="col-sm-3 control-label">Member ID</label>
-                            <div class="col-sm-9">
-                                <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
-
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="authorname" class="col-sm-3 control-label">Date Return</label>
-                            <div class="col-sm-9">
-                                <input type="date" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="genre" class="col-sm-3 control-label">Date Issue</label>
-                            <div class="col-sm-9">
-                                <input type="date" id="genre" placeholder="Give the return date of Book" class="form-control" autofocus>
-                            </div>
-                        </div>
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <center>
-                                <button type="submit" class="btn btn-default js">Submit</button>
-                                <button type="cancel" class="btn btn-default js">Cancel</button>
-                            </center>
-                        </div>
-                </div>
-                </form>
             </div>
 
 
 
 
+            <div class="modal fade bd-example-modal-lg" id="viewBook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">AUTHOR</th>
+                                    <th scope="col">LANGUAGE</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
 
-        </div>
-    </div>
+                                <%                                                                                try {
+                                        Connection con = ConnectionProvider.getConnection();
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery("select * from book");
+
+                                        while (rs.next()) {
+                                %>
+
+                                <%
+                                    if (rs.getString("flag").equals("F")) {
+                                %>
+                                <tr >
+                                    <%
+                                    } else {
+                                    %>
+                                <tr class="bg-warning">
+                                    <%
+                                        }
+                                    %>
+
+                                    <td><%=rs.getString("id")%></td>
+                                    <td><%=rs.getString("name")%></td>
+                                    <td><%=rs.getString("author")%></td>
+                                    <td><%=rs.getString("language")%></td>
 
 
-    <jsp:include page="footer.jsp"/>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-</body>
+                                    <%
+                                        if (rs.getString("flag").equals("F")) {
+                                    %>
+                                    <td>Not Issued</td>       
+                                    <%
+                                    } else {
+                                    %>
+                                    <td>Issued</td>       
+                                    <%
+                                        }
+                                    %>
+
+
+
+                                </tr>
+                                <%
+                                        }
+
+                                    } catch (Exception e) {
+                                        out.print(e);
+                                    }
+
+                                %>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade bd-example-modal-lg" id="viewIssuedBook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">AUTHOR</th>
+                                    <th scope="col">LANGUAGE</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <%                                                                                try {
+                                        Connection con = ConnectionProvider.getConnection();
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery("select * from book where flag='O'");
+
+                                        while (rs.next()) {
+                                %>
+
+                                <tr>
+
+                                    <td><%=rs.getString("id")%></td>
+                                    <td><%=rs.getString("name")%></td>
+                                    <td><%=rs.getString("author")%></td>
+                                    <td><%=rs.getString("language")%></td>
+
+                                </tr>
+                                <%
+                                        }
+
+                                    } catch (Exception e) {
+                                        out.print(e);
+                                    }
+
+                                %>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+
+                function setDate() {
+                    var rawDate = document.getElementById("issueDate").value
+                    var date = new Date(rawDate);
+                    date.setDate(date.getDate() + 7);
+
+                    var addedDate = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+
+                    document.getElementById("returnDate").value = addedDate;
+                }
+
+            </script>
+            <jsp:include page="footer.jsp"/>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    </body>
 </html>
