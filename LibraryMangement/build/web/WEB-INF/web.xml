@@ -12,6 +12,14 @@
         <servlet-name>signout</servlet-name>
         <servlet-class>Main.signout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>Main.AdminLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveEmployee</servlet-name>
+        <servlet-class>Main.RemoveEmployee</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>signout</servlet-name>
         <url-pattern>/signout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveEmployee</servlet-name>
+        <url-pattern>/RemoveEmployee</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

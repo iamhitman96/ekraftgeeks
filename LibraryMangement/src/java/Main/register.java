@@ -41,44 +41,84 @@ public class register extends HttpServlet {
         email = request.getParameter("email");
         password = request.getParameter("password");
 
-        try {
-            Connection con = ConnectionProvider.getConnection();
-            String id = UUID.randomUUID().toString().replace("-", "").substring(0, 7);
-            PreparedStatement stmt = con.prepareStatement("insert into register values(?,?,?,?,?,?,?,?,?,?)");
-            stmt.setString(1, id);
-            stmt.setString(2, firstName);
-            stmt.setString(3, lastName);
-            stmt.setString(4, age);
-            stmt.setString(5, dob);
-            stmt.setString(6, gender);
-            stmt.setString(7, address);
-            stmt.setString(8, phoneNumber);
-            stmt.setString(9, email);
-            stmt.setString(10, password);
+        if (request.getParameter("employee") != null && request.getParameter("employee").equals("true")) {
 
-            PreparedStatement stmt2 = con.prepareStatement("insert into login values(?,?,?,?)");
-            stmt2.setString(1, id);
-            stmt2.setString(2, email);
-            stmt2.setString(3, password);
-            stmt2.setString(4, "A");
+            try {
+                Connection con = ConnectionProvider.getConnection();
+                String id = UUID.randomUUID().toString().replace("-", "").substring(0, 7);
+                PreparedStatement stmt = con.prepareStatement("insert into register values(?,?,?,?,?,?,?,?,?,?)");
+                stmt.setString(1, id);
+                stmt.setString(2, firstName);
+                stmt.setString(3, lastName);
+                stmt.setString(4, age);
+                stmt.setString(5, dob);
+                stmt.setString(6, gender);
+                stmt.setString(7, address);
+                stmt.setString(8, phoneNumber);
+                stmt.setString(9, email);
+                stmt.setString(10, password);
 
-            if (stmt.executeUpdate() > 0 && stmt2.executeUpdate() > 0) {
+                PreparedStatement stmt2 = con.prepareStatement("insert into login values(?,?,?,?)");
+                stmt2.setString(1, id);
+                stmt2.setString(2, email);
+                stmt2.setString(3, password);
+                stmt2.setString(4, "E");
 
-                
-                request.setAttribute("alert", "succesfully registered");
-                
-                RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-                rd.forward(request, response);
+                if (stmt.executeUpdate() > 0 && stmt2.executeUpdate() > 0) {
 
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-                rd.forward(request, response);
+                    request.setAttribute("alert", "succesfully registered");
+
+                    RequestDispatcher rd = request.getRequestDispatcher("adminWelcome.jsp");
+                    rd.forward(request, response);
+
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+                    rd.forward(request, response);
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
             }
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        } else {
 
+            try {
+                Connection con = ConnectionProvider.getConnection();
+                String id = UUID.randomUUID().toString().replace("-", "").substring(0, 7);
+                PreparedStatement stmt = con.prepareStatement("insert into register values(?,?,?,?,?,?,?,?,?,?)");
+                stmt.setString(1, id);
+                stmt.setString(2, firstName);
+                stmt.setString(3, lastName);
+                stmt.setString(4, age);
+                stmt.setString(5, dob);
+                stmt.setString(6, gender);
+                stmt.setString(7, address);
+                stmt.setString(8, phoneNumber);
+                stmt.setString(9, email);
+                stmt.setString(10, password);
+
+                PreparedStatement stmt2 = con.prepareStatement("insert into login values(?,?,?,?)");
+                stmt2.setString(1, id);
+                stmt2.setString(2, email);
+                stmt2.setString(3, password);
+                stmt2.setString(4, "C");
+
+                if (stmt.executeUpdate() > 0 && stmt2.executeUpdate() > 0) {
+
+                    request.setAttribute("alert", "succesfully registered");
+
+                    RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+                    rd.forward(request, response);
+
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+                    rd.forward(request, response);
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
     }
 
 }

@@ -11,10 +11,53 @@ VALUES (
 'Shubham',
 'Mhatre',
  '20',
-'04/11/1996',
+'1996-11-04',
 'Male',
 '401/A neumec height vileparle east',
 '9969742702',
 'mhatreshubham78@gmail.com',
 'pass@123'
+);
+
+
+INSERT INTO register
+VALUES (
+'ed1d4b4',
+'Mohnish',
+'Anjaria',
+ '20',
+'1996-11-04',
+'Male',
+'401/A Neumec Heights Shraddhanand Road',
+'9969742702',
+'anjariamohnish@gmail.com',
+'pass@123'
+);
+
+
+
+INSERT INTO login
+VALUES (
+'21e6b7c',
+'mhatreshubham78@gmail.com',
+'pass@123',
+'C'
+);
+
+
+INSERT INTO login
+VALUES (
+'ed1d4b4',
+'anjariamohnish@gmail.com',
+'pass@123',
+'E'
+);
+
+
+
+INSERT INTO admin
+VALUES (
+'admin@gmail.com',
+'admin'
+
 );

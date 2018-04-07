@@ -72,6 +72,20 @@
         </script>
     </head>
     <body>
+
+        <%
+
+            if (request.getAttribute("alert") != null) {
+        %>
+
+        <script>
+            alert('<%=request.getAttribute("alert")%>');
+        </script>
+        <%
+            }
+
+        %>
+
         <jsp:include page="header.jsp"/>
         <br/>
 
@@ -80,13 +94,13 @@
             <br/>
             <div class="row">
                 <div class="w-25 col-lg-4 offset-lg-4">
-                    <form class="form-horizontal" role="form" id="form1" method="get" onsubmit= "return validation()">
+                    <form class="form-horizontal" role="form" id="form1" method="post" action="AdminLogin" onsubmit= "return validation()">
                         <div id="name_error"></div>
 
                         <div class="form-group" id="email_form">
                             <label class="control-label col-sm-2" for="email">Email:</label>
                             <div class="col-sm-10">
-                                <input type="email" id="email" class="form-control" placeholder="Enter email"/>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email"/>
                             </div>
                         </div>
 
@@ -94,7 +108,7 @@
                         <div class="form-group" id="password_form">
                             <label class="control-label col-sm-2" for="pwd">Password:</label>
                             <div class="col-sm-10"> 
-                                <input type="password" id="password" class="form-control" placeholder="Enter password">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter password">
 
                             </div>
                         </div>
