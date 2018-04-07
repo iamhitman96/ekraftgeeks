@@ -4,6 +4,11 @@
     Author     : mohnish
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Calendar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +22,7 @@
         <jsp:include page="header.jsp"/>
 
         <div class="container">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" action="register" method="post" role="form">
                 <div class="w-75 col-lg-8 offset-lg-2">
                     <center>
                         <h2>Member Registration Form</h2>
@@ -25,28 +30,38 @@
                     <div class="form-group">
                         <label for="firstName" class="col-sm-3 control-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                            <input type="text"  name="firstName" placeholder="First Name" class="form-control" required >
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                            <input type="text" name="lastName" placeholder="Last Name" class="form-control" required >
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="age" class="col-sm-3 control-label">Enter Age</label>
                         <div class="col-sm-9">
-                            <input type="number" id="age" placeholder="Age" class="form-control" autofocus>
+                            <input type="number" name="age" placeholder="Age" class="form-control" required >
 
                         </div>
                     </div>
+
+                    <%
+                        Calendar cal = Calendar.getInstance();
+                        Date today = cal.getTime();
+                        cal.add(Calendar.YEAR, -18); // to get previous year add -1
+                        Date oldDate = cal.getTime();
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        String newstring = dateFormat.format(oldDate);
+
+                    %>
                     <div class="form-group">
                         <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
                         <div class="col-sm-9">
-                            <input type="date" id="birthDate" class="form-control">
+                            <input type="date" name="birthDate" class="form-control" max="<%=newstring%>" required>
                         </div>
                     </div>
 
@@ -61,16 +76,16 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <label class="radio-inline">
-                                        <input type="radio" id="maleRadio" name="gender" value="Male">Male
+                                        <input type="radio" id="maleRadio" name="gender" value="Male" checked="true">Male
                                     </label>
                                 </div>
-                              
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address" class="col-sm-3 control-label">Enter Address</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="5" id="address" class="form-control" placeholder="Full Address"></textarea>
+                                <textarea class="form-control" required rows="5" name="address" class="form-control" required placeholder="Full Address"></textarea>
 
                             </div>
                         </div>
@@ -78,14 +93,14 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-3 control-label">Phone Number</label>
                             <div class="col-sm-9">
-                                <input type="number" id="phone" placeholder="Phone Number" class="form-control">
+                                <input type="number" name="phone" placeholder="Phone Number" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" id="email" placeholder="Email" class="form-control">
+                                <input type="email" name="email" placeholder="Email" class="form-control" required>
                             </div>
                         </div>
 
@@ -93,15 +108,8 @@
                         <div class="form-group">
                             <label for="password" class="col-sm-3 control-label">Enter Password</label>
                             <div class="col-sm-9">
-                                <input type="password" id="password" placeholder="Password" class="form-control">
+                                <input type="password" name="password" placeholder="Password" class="form-control" required>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" class="col-sm-5 control-label">Enter Confirm Password</label>
-                        <div class="col-sm-9">
-                            <input type="password" id="password" placeholder="Password" class="form-control">
                         </div>
                     </div>
 
@@ -109,8 +117,8 @@
                         <div class="col-sm-9 col-sm-offset-3">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox">I accept
-                                    <a href="#">terms</a>
+                                    <input type="checkbox">I accept Terms and Condition
+
                                 </label>
                             </div>
                         </div>
@@ -119,7 +127,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <center>
                                 <button type="submit" class="btn btn-default js">Submit</button>
-                                <button type="cancel" class="btn btn-default js">Cancel</button>
+
                             </center>
                         </div>
 

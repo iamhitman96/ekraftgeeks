@@ -69,6 +69,7 @@
                      
 
                     </ul>
+                    
                     <a href="Login.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-right: 1% ">Login</a>
                     <a href="MemberRegistration.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true">Register</a>
 
