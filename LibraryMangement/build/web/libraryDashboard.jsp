@@ -14,12 +14,26 @@
         <title>Dashboard</title>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
+        <%
+            HttpSession sessions = request.getSession(false);
+            if (sessions.getAttribute("token") == null && sessions.getAttribute("type") == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+                rd.forward(request, response);
+            }
+        %>
+
         <br/>
 
 
         <div class="container-fluid">
 
+            <div class="row">
+                <div class="col-sm-12 offset-sm-11">
+                    <a href="signout" class="btn btn-outline-danger" role="button" aria-pressed="true" style="margin-right: 1% ">Signout</a>
+
+
+                </div>
+            </div>
 
             <div class="container-fluid" style="float: left;">
                 <div class="row">
