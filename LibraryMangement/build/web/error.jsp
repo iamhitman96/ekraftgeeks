@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+    <center><h1>Something Went Wrong Please Try Again !</h1></center>
     </body>
 </html>
