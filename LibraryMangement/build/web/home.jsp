@@ -14,7 +14,16 @@
         <title>Library</title>
     </head>
     <body>
+        <%
+            HttpSession sessions = request.getSession(false);
+            if ((String) sessions.getAttribute("token") != null) {
 
+                RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+                rd.forward(request, response);
+            }
+
+
+        %>
         <jsp:include page="header.jsp"/>
         <br/>
         <div class="container">
