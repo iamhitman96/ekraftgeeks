@@ -1,0 +1,20 @@
+SELECT * FROM HR.register FETCH FIRST 100 ROWS ONLY;
+
+UPDATE LOGIN
+SET flag = 'C'
+WHERE ID = '21e6b7c';
+
+
+INSERT INTO register
+VALUES (
+'21e6b7c',
+'Shubham',
+'Mhatre',
+ '20',
+'04/11/1996',
+'Male',
+'401/A neumec height vileparle east',
+'9969742702',
+'mhatreshubham78@gmail.com',
+'pass@123'
+);

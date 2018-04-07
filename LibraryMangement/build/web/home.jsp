@@ -16,7 +16,7 @@
     <body>
         <%
             HttpSession sessions = request.getSession(false);
-            if ((String) sessions.getAttribute("token") != null) {
+            if ((String) sessions.getAttribute("token") != null && sessions.getAttribute("type").equals("C")) {
 
                 RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
                 rd.forward(request, response);

@@ -39,14 +39,25 @@ public class login extends HttpServlet {
         try {
             Connection con = ConnectionProvider.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select id from login where email='" + email + "' AND password='" + password + "'");
+            ResultSet rs = stmt.executeQuery("select id,flag from login where email='" + email + "' AND password='" + password + "'");
 
             while (rs.next()) {
                 if (rs.getString("ID") != null) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("token", rs.getString("ID"));
-                    RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
-                    rd.forward(request, response);
+
+                    if (rs.getString("flag").equals("C")) {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("token", rs.getString("ID"));
+                        session.setAttribute("type", "C");
+                        RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+                        rd.forward(request, response);
+                    } else {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("token", rs.getString("ID"));
+                        session.setAttribute("type", "E");
+                        RequestDispatcher rd = request.getRequestDispatcher("libraryDashboard.jsp");
+                        rd.forward(request, response);
+                    }
+
                 }
 
             }

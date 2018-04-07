@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
                         <div class="col-sm-9">
-                            <input type="date" name="birthDate" class="form-control" max="<%=newstring%>" required>
+                            <input type="date" name="dob" class="form-control" max="<%=newstring%>" required>
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-3 control-label">Phone Number</label>
                             <div class="col-sm-9">
-                                <input type="number" name="phone" placeholder="Phone Number" class="form-control" required>
+                                <input type="number" name="phoneNumber" placeholder="Phone Number" class="form-control" required>
                             </div>
                         </div>
 
