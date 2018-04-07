@@ -26,6 +26,11 @@
     </head>
     <body>
         <%
+            HttpSession sessions = request.getSession(false);
+            if (sessions.getAttribute("adminToken") == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+                rd.forward(request, response);
+            }
 
             if (request.getAttribute("alert") != null) {
         %>
@@ -41,7 +46,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 offset-sm-11">
-                    <button class="btn btn-danger"> Signout</button>
+                    <a href="signout" class="btn btn-outline-danger" role="button" aria-pressed="true" style="margin-right: 1% ">Signout</a>
+
+
                 </div>
             </div>
 

@@ -75,6 +75,11 @@
 
         <%
 
+            HttpSession sessions = request.getSession(false);
+            if (sessions.getAttribute("adminToken") != null) {
+                RequestDispatcher rd = request.getRequestDispatcher("adminWelcome.jsp");
+                rd.forward(request, response);
+            }
             if (request.getAttribute("alert") != null) {
         %>
 
