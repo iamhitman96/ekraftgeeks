@@ -1,0 +1,66 @@
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('f1d1b6e','Mrityunjaya', 'Marathi', 'Shivaji Sawant','F');
+
+INSERT INTO HR.BOOK(ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('18f8d9b','Shriman Yogi', 'Marathi', 'Ranjit Desai','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('9a15e18','Panipat', 'Marathi', 'Vishwas Patil','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('c11964f','Yugandhar', 'Marathi', 'Shivaji Sawant','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('69d4634','Shyamchi Aai', 'Marathi', 'Sane Gurujee','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('2a82f97','Raja ShivChatrapati', 'Marathi', 'Babasaheb Purandare','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('5638b19','Yayati: A Classic Tale of Lust', 'Marathi', 'Vishnu Sakharam Khandekar','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('8fb9e84','Duniyadari', 'Marathi', 'Suhas Shirvalkar','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('4251ce1','Partner', 'Marathi', 'V. P. Kale','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('0d9f3d8','Musafir', 'Marathi', 'Achyut Godbole','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('c029bb8','Teachings of Swami Vivekananda', 'Marathi', 'Swami Vivekananda','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('d5851af','Vyakti Aani Valli', 'Marathi', 'P. L. Deshpande','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('0bc9e96','Shala', 'Marathi', 'Milind Bokil','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('98fc81d','Radheya', 'Marathi', 'Ranjit Desai','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('493544b','The Secret of Nagas', 'Marathi', 'Amish Tripathi','F');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

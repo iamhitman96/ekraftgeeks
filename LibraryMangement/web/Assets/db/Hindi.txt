@@ -1,0 +1,88 @@
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('f46beb3','Bansuri', 'Hindi', 'Pandit Sohanlal Dwivedi','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('163ea51','Siddhidatri Vakk Sadhana', 'Hindi', 'Acharya Shriram Sharma','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('905f469','Panch Praan Panch Dev', 'Hindi', 'Acharya Shriram Sharma','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('c630780','Jyotishchandrika', 'Hindi', 'Gangaprasad','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('34b6618','Prachin Bharat Mein Rasayan Ka Vikas', 'Hindi', 'Swami Satyaprakash Saraswati','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('33dfbc5','Lal Kranti', 'Hindi', 'Pandit Rama Shanker Awasthi','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('d95c38c','Jyotish Sarv Sangrah', 'Hindi', 'Ramswaroop Sharma','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('5078245','Dasha Mahavidhya', 'Hindi', 'Gita','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('137629c','Geeta Darshan', 'Hindi', 'Osho','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('0b01c0c','Bhoot Damar Tantra', 'Hindi', 'Dr. Brahmanand Tripathi','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('1c525a8','Samudrik Shastra', 'Hindi', 'Chotelal Jain','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('4551e52','Panchbhut Vigyanam', 'Hindi', 'Das Upendranath','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('e40e5c6','Yoga and Perfection', 'Hindi', 'Swami Purnananda','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('e36cd1e','Tantrik Ki Diary', 'Hindi', 'Sushil Kumar','F');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

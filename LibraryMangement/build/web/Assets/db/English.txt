@@ -1,0 +1,83 @@
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('750f59a','Harry Potter and the Deathly Hallows', 'English', 'J. K. Rowling','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('37c8188','The Hobbit', 'English', 'J. R. R. Tolkien','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('a6980dd','1984', 'English', 'George Orwell','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('a41c510','Pride and Prejudice', 'English', 'Jane Austen','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('658f5c5','The Da Vinci Code', 'English', 'Dan Brown','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('130ad2e','To Kill a Mockingbird', 'English', 'Harper Lee','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('80890e5','The Catcher in the Rye', 'English', 'J. D. Salinger','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('422b221','The Great Gatsby', 'English', 'F. Scott Fitzgerald','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('687f03a','Twilight', 'English', 'Stephenie Meyer','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('5f50305','The Hunger Games', 'English', 'Suzanne Collins','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('4d440d7','Kite Runner', 'English', 'Khaled Hosseini','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('0011551','Jane Eyre', 'English', 'Charlotte Brontë','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('58b20d8','Animal Farm', 'English', 'George Orwell','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('6040da3','Brave New World', 'English', 'Aldous Huxley','F');
+
+INSERT INTO HR.BOOK (ID, "NAME", "LANGUAGE", "AUTHOR","FLAG") VALUES 
+('ae52fd4','The Lord of the Rings', 'English', 'J. R. R. Tolkien','F');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
