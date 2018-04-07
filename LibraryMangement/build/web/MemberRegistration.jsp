@@ -19,8 +19,17 @@
         <title>Register</title>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
+         <%
+            HttpSession sessions = request.getSession(false);
+            if ((String) sessions.getAttribute("token") != null) {
 
+                sessions.invalidate();
+
+            }
+
+        %>
+        <jsp:include page="header.jsp"/>
+       
         <div class="container">
             <form class="form-horizontal" action="register" method="post" role="form">
                 <div class="w-75 col-lg-8 offset-lg-2">
@@ -49,8 +58,7 @@
                         </div>
                     </div>
 
-                    <%
-                        Calendar cal = Calendar.getInstance();
+                    <%                        Calendar cal = Calendar.getInstance();
                         Date today = cal.getTime();
                         cal.add(Calendar.YEAR, -18); // to get previous year add -1
                         Date oldDate = cal.getTime();

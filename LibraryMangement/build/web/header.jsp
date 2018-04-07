@@ -57,7 +57,7 @@
                     <ul class="navbar-nav mx-auto padding ">
                         <li class="nav-item">
                             <a class="nav-link" href="home.jsp">Home
-                              
+
                             </a>
                         </li>
                         <li class="nav-item">
@@ -66,12 +66,28 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contactus.jsp">Contact US</a>
                         </li>
-                     
+
 
                     </ul>
-                    
+                    <%
+                        HttpSession sessions = request.getSession(false);
+                        if ((String) sessions.getAttribute("token") != null) {
+                    %>
+
+                    <a href="signout" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-right: 1% ">Signout</a>
+
+
+                    <%
+                    } else {
+                    %>
+
                     <a href="Login.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="margin-right: 1% ">Login</a>
                     <a href="MemberRegistration.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true">Register</a>
+
+                    <%
+                        }
+
+                    %>
 
                 </div>
             </nav>
