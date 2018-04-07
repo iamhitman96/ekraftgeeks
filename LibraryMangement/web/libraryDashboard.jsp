@@ -91,6 +91,14 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item lead">
+                                    <a class="nav-link" href="#">
+                                        <span data-feather="layers"></span>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewContactRequest" data-whatever="@mdo">Contact Request's</button>
+
+                                    </a>
+                                </li>
+
                             </ul>
 
 
@@ -395,6 +403,57 @@
                 </div>
             </div>
 
+
+            <div class="modal fade bd-example-modal-lg" id="viewContactRequest" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Query</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <%                                                                                try {
+                                        Connection con = ConnectionProvider.getConnection();
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery("select * from contactrequest");
+
+                                        while (rs.next()) {
+                                %>
+
+                                <tr>
+
+                                    <td><%=rs.getString("id")%></td>
+                                    <td><%=rs.getString("firstName")%> <%=rs.getString("lastName")%></td>
+                                    <td><%=rs.getString("email")%></td>
+                                    <td><%=rs.getString("description")%></td>
+
+                                </tr>
+                                <%
+                                        }
+
+                                    } catch (Exception e) {
+                                        out.print(e);
+                                    }
+
+                                %>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
             <script>
 

@@ -29,6 +29,15 @@
                 resize: vertical;
             }
 
+            input[type=email], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+            }
+            
             input[type=submit] {
                 background-color: #4CAF50;
                 color: white;
@@ -89,20 +98,15 @@
                     <div id="map" style="width:100%;height:500px"></div>
                 </div>
                 <div class="column">
-                    <form action="">
+                    <form action="requestQuery" method="post">
                         <label for="fname">First Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your name..">
                         <label for="lname">Last Name</label>
                         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                        <label for="country">Country</label>
-                        <select id="country" name="country">
-                            <option value="india">India</option>
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="usa">USA</option>
-                        </select>
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email Id..">
+                        <label for="subject">Query</label>
+                        <textarea id="subject" name="description" placeholder="Write something.." style="height:170px"></textarea>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
