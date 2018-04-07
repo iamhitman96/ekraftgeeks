@@ -184,7 +184,7 @@
                     </form>
 
                     <hr/>
-
+                    <div  style="max-height: 300px;overflow-y: scroll;">
                     <center>  <h3>List of Customers</h3></center>
                     <table class="table table-striped table-hover">
                         <thead>
@@ -243,39 +243,49 @@
 
                         </tbody>
                     </table>
+                </div>
+                    <div style="max-height: 300px;overflow-y: scroll;">
+                        <center>  <h3>List of Books</h3></center>
+                        <table class="table table-striped  table-hover" >
+                            <thead>
+                                <tr>
 
-                    <center>  <h3>List of Books</h3></center>
-                    <table class="table table-striped  table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Language</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                                <%                                try {
+                                        Connection con = ConnectionProvider.getConnection();
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery("select * from book");
+
+                                        while (rs.next()) {
+                                %> 
+                                <tr>
+                                    <td><%=rs.getString("id")%></td>
+                                    <td><%=rs.getString("name")%></td>
+                                    <td><%=rs.getString("author")%></td>
+                                    <td><%=rs.getString("language")%></td>
+                                </tr>
+
+                                <%
+                                        }
+
+                                    } catch (Exception e) {
+                                        out.print(e);
+                                    }
+
+
+                                %>
+
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
 
