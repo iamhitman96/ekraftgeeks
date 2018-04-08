@@ -32,6 +32,10 @@
         <servlet-name>returnbook</servlet-name>
         <servlet-class>Main.returnbook</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>requestQuery</servlet-name>
+        <servlet-class>Main.requestQuery</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>returnbook</servlet-name>
         <url-pattern>/returnbook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>requestQuery</servlet-name>
+        <url-pattern>/requestQuery</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

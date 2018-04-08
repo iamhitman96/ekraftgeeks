@@ -37,7 +37,7 @@
                 margin-bottom: 16px;
                 resize: vertical;
             }
-            
+
             input[type=submit] {
                 background-color: #4CAF50;
                 color: white;
@@ -53,7 +53,7 @@
             /* Style the container/contact section */
             .container {
                 border-radius: 5px;
-               
+
                 padding: 10px;
             }
 
@@ -86,12 +86,19 @@
     <body>
 
         <jsp:include page="header.jsp"/>
+        <%
+            if (request.getAttribute("alert") != null) {
 
+        %>
 
+        <script>alert('<%=request.getAttribute("alert")%>');</script>
+        <%
+            }
+        %>
         <div class="container">
             <div style="text-align:center">
                 <h2>Contact Us</h2>
-             
+
             </div>
             <div class="row">
                 <div class="column">
@@ -100,13 +107,13 @@
                 <div class="column">
                     <form action="requestQuery" method="post">
                         <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <input type="text" id="fname" name="firstName" placeholder="Your First name.." required>
                         <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        <input type="text" id="lname" name="lastName" placeholder="Your last name.." required>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your email Id..">
+                        <input type="email" id="email" name="email" placeholder="Your email Id.." required>
                         <label for="subject">Query</label>
-                        <textarea id="subject" name="description" placeholder="Write something.." style="height:170px"></textarea>
+                        <textarea id="subject" name="query" placeholder="Write something.." style="height:170px"></textarea>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
@@ -128,7 +135,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_vwqttQEKSpse34jNAdNg-iI7BFc_n4&callback=myMap"></script>
 
 
-       
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
