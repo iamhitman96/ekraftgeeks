@@ -25,6 +25,14 @@
                 RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
                 rd.forward(request, response);
             }
+
+            if (request.getAttribute("alert") != null) {
+
+        %>
+
+        <script>alert('<%=request.getAttribute("alert")%>');</script>
+        <%
+            }
         %>
 
         <br/>
@@ -124,28 +132,30 @@
                                 <div class="form-group">
                                     <label for="bookid" class="col-sm-3 control-label">Book Id</label>
                                     <div class="col-sm-9">
-                                        <input type="text" disabled="true" value="<%=UUID.randomUUID().toString().replace("-", "").substring(0, 7)%>" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+                                        <%String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 7);%>
+                                        <label class="form-control"><%=uuid%></label>
+                                        <input type="text" hidden="true" value="<%=uuid%>" name="id" class="form-control">
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="bookName" class="col-sm-3 control-label">Book Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="bookName" placeholder="Give the Book Name" class="form-control" required>
+                                        <input type="text" name="name" placeholder="Give the Book Name" class="form-control" required>
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="authorname" class="col-sm-3 control-label">Author Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="authorname" placeholder="Give the author name" class="form-control" required>
+                                        <input type="text" name="author" placeholder="Give the author name" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="language" class="col-sm-3 control-label">Language</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="language" placeholder="Give the Language of the Book" class="form-control" required>
+                                        <input type="text" name="language" placeholder="Give the Language of the Book" class="form-control" required>
 
                                     </div>
                                 </div>
