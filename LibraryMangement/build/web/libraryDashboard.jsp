@@ -188,7 +188,7 @@
                                 <div class="form-group">
                                     <label for="bookid" class="col-sm-3 control-label">Book Id</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <select class="form-control" name="bookId" id="exampleFormControlSelect1">
 
 
                                             <%
@@ -218,20 +218,21 @@
                                 <div class="form-group">
                                     <label for="bookName" class="col-sm-3 control-label">Member ID</label>
                                     <div class="col-sm-9">
-                                        <input type="number" id="memberid" placeholder="Give the Member id" class="form-control" autofocus>
+                                        <input type="text" name="memberId" placeholder="Give the Member id" class="form-control" autofocus required>
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="authorname" class="col-sm-3 control-label">Date Issue</label>
                                     <div class="col-sm-9">
-                                        <input type="date" id="issueDate" onchange="setDate();" id="authorname" placeholder="Give the date issue" class="form-control" autofocus>
+                                        <input type="date" name="issueDate" id="issueDate" onchange="setDate();" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="genre" class="col-sm-3 control-label">Date Return</label>
                                     <div class="col-sm-9">
-                                        <input type="text"   id="returnDate"  disabled class="form-control" >
+                                        <label class="form-control" id="returnDate">DD-MM-YYYY</label>
+                                        <input type="text" hidden name="returnDate" id="returnDatehidden"   class="form-control" required>
                                     </div>
                                 </div>
 
@@ -474,7 +475,8 @@
 
                     var addedDate = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 
-                    document.getElementById("returnDate").value = addedDate;
+                    document.getElementById("returnDate").innerHTML = addedDate;
+                    document.getElementById("returnDatehidden").value = addedDate;
                 }
 
             </script>
