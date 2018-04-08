@@ -265,7 +265,7 @@
                                 <div class="form-group">
                                     <label for="bookid" class="col-sm-3 control-label">Book Id</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="bookid" placeholder="Give the Book Id" class="form-control" autofocus>
+                                        <input type="text" name="bookId" placeholder="Give the Book Id" class="form-control" autofocus>
 
                                     </div>
                                 </div>

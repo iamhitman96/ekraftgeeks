@@ -28,6 +28,10 @@
         <servlet-name>issuebook</servlet-name>
         <servlet-class>Main.issuebook</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>returnbook</servlet-name>
+        <servlet-class>Main.returnbook</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>issuebook</servlet-name>
         <url-pattern>/issuebook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>returnbook</servlet-name>
+        <url-pattern>/returnbook</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
